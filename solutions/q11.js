@@ -5,3 +5,5 @@ Expected Output: 'abeemrstw
 
 var string='webmaster';
 //Write your code here
+module.exports = string.split('').sort().join('');
+
