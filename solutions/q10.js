@@ -20,7 +20,46 @@ const studentDetails = [
 let studentsGradeRatingArr = []
 
 //Write your code here
+let i = 0;
+studentDetails.forEach( function(data){
+    switch (true){
+            case(data.marks <= 60): studentsGradeRatingArr[i] = data;
+                                    studentsGradeRatingArr[i].grade = 'F';
+                                    studentsGradeRatingArr[i].rating = 'Poor';
+                                    i++;
+                                    break;
+            case(data.marks <= 70 && data.marks >=61 ): studentsGradeRatingArr[i] = data;
+                                    studentsGradeRatingArr[i].grade = 'D';
+                                    studentsGradeRatingArr[i].rating = 'Fair';
+                                    i++;
+                                    break;
+            case(data.marks <= 80 && data.marks >= 71 ): studentsGradeRatingArr[i] = data;
+                                    studentsGradeRatingArr[i].grade = 'C';
+                                    studentsGradeRatingArr[i].rating = 'Average';
+                                    i++;
+                                    break;
+           case(data.marks <= 90 && data.marks >= 81 ): studentsGradeRatingArr[i] = data;
+                                    studentsGradeRatingArr[i].grade = 'B';
+                                    studentsGradeRatingArr[i].rating = 'Good';
+                                    i++;
+                                    break;
+           case(data.marks <= 100 && data.marks >= 91 ): studentsGradeRatingArr[i] = data;
+                                    studentsGradeRatingArr[i].grade = 'A';
+                                    studentsGradeRatingArr[i].rating = 'Excellent';
+                                    i++;
+                                    break;
+        default:
+            console.log('illuminati');
+            break;
+            i++;
+            
+    }
+})
 //
+studentsGradeRatingArr.forEach(function(data){
+    delete data.marks;
 
+})
 
+// console.log(studentsGradeRatingArr);
 module.exports = studentsGradeRatingArr;
