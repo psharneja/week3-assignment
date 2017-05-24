@@ -8,6 +8,7 @@ const library = [
 
 let compare = function(a, b) {
   //Write your code here
+    return parseInt(a.year) - parseInt(b.year);
 };
 
 module.exports = library.sort(compare);
