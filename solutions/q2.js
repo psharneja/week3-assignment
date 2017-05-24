@@ -2,5 +2,8 @@
 
 function highestAndLowest(numbers){
 // Write your code here
+    numbers = numbers.split(" ");
+    return Math.max(...numbers) +" "+ Math.min(...numbers);
 }
 module.exports = highestAndLowest;
+//console.log(highestAndLowest("4 5 2 3 7 6 5"));
