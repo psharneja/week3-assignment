@@ -5,6 +5,12 @@ Expected output: 1
 
 function char_count(str, letter){
 //Write your code here
+    str = str.split('');
+    let counter = 0;
+    str.forEach(function(data, i){
+        if (str[i] === letter) counter++;
+    })
+    return counter;
 }
 
 
