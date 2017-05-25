@@ -12,4 +12,4 @@ function pyramid(lines) {
     }
 }
 
-pyramid(20);
+pyramid(5);

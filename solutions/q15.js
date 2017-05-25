@@ -6,76 +6,105 @@
 // Expected output:
 // [ 'Arun','Ashish','Kalyani','David','Priya','Venkat' ]
 
-var myObj =[{'name':'Arun', 'age': 30, 'occupation': "Developer"},
-{'name':'Ashish', 'age': 32, 'occupation': "Developer"},
-{'name':'Kalyani', 'age': 25, 'occupation': "Programmer"},
-{'name':'David', 'age': 27, 'occupation': "Programmer"},
-{'name':'Priya', 'age': 22, 'occupation': "Programmer"},
-{'name':'Venkat', 'age': 28, 'occupation': "Programmer"}];
+var myObj = [{
+        'name': 'Arun',
+        'age': 30,
+        'occupation': "Developer"
+    },
+    {
+        'name': 'Ashish',
+        'age': 32,
+        'occupation': "Developer"
+    },
+    {
+        'name': 'Kalyani',
+        'age': 25,
+        'occupation': "Programmer"
+    },
+    {
+        'name': 'David',
+        'age': 27,
+        'occupation': "Programmer"
+    },
+    {
+        'name': 'Priya',
+        'age': 22,
+        'occupation': "Programmer"
+    },
+    {
+        'name': 'Venkat',
+        'age': 28,
+        'occupation': "Programmer"
+    }];
 
 //Write your code here
-let arrayOccup=[];
-let occupationArr = {};
-// comparison function
-let compare = function(a, b){
-    return parseInt(b.age) - parseInt(a.age);
-}
-// duplicate removal
+let occupationArr=[], a = [], nameArr = [];
+
+//REMOVE DUPLICATES
 function removeDuplicates(arr){
-  //Write your code here
     var unique = arr.filter(function(elem, index, self) {
     return index == self.indexOf(elem);
 })
     return unique;
 }
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
-// part a
-console.log("PART A");
-myObj.forEach(function(data, i){
-    if(data.occupation === 'Programmer'){
-        console.log(data);
+myObj.forEach(function (data, i) {
+    if (data.occupation === 'Programmer') {
+        a.push(data);
     }
-    arrayOccup[i]=data.occupation;
+     occupationArr[i]=data.occupation;
 })
 
-// part b
-console.log("PART B");
-myObj.sort(compare);
-console.log(myObj);
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// part c
-console.log("PART C");
-arrayOccup = removeDuplicates(arrayOccup);
-console.log(arrayOccup);
-//
-//myObj.forEach( function (data, i){
-//    if(data.occupation in occupationArr){
-//        namer = data.occupation;
-//        occupationArr[namer].name = data.name ;
-//        occupationArr[namer].age = data.age;
-//    } else {
-//        occupationArr[data.occupation] = {
-//            name: data.name,
-//            age: data.age
-//        };
-//    }
-//})
-//console.log(occupationArr);
-let y = {};
-myObj.forEach(obj => {
-  Object.keys(obj).forEach(key => {
-    y[key] = (y[key] || []).concat([obj[key]]);
-  });
-});
-console.log(y);
+let compare = function (a, b) {
+    return parseInt(b.age) - parseInt(a.age);
+}
+myObj.sort(compare); 
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+occupationArr = removeDuplicates(occupationArr);
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+let firstobj = [], secondobj = [];
+let j = 0, k = 0;
+
+myObj.forEach(function (data, i) {
+    if (data.occupation === 'Developer') {
+        firstobj[j] = {
+            name: data.name,
+            age: data.age
+        }
+        j++;
+    } else if (data.occupation === 'Programmer') {
+        secondobj[k] = {
+            name: data.name,
+            age: data.age
+        }
+        k++;
+    }
 
 
-/* Uncomment the below statement - when code is written
+})
+let newObj = {
+    Developer: firstobj,
+    Programmer: secondobj
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+myObj.forEach( function (d){
+    nameArr.push(d.name);
+})
+
+ // Uncomment the below statement - when code is written
 module.exports = {
   c: occupationArr,
   d: newObj,
   e: nameArr
 };
-*/
+
